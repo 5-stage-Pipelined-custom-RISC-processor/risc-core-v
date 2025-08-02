@@ -17,7 +17,7 @@ module ALU_Unit(
   wire [31:0] ALU_inA, ALU_inB, MUXtoMUX, SWin;
   assign ALU_inA = FA? ALU_Result_1: RD1_1;
   assign MUXtoMUX = ID_EX_ALU_Src ? SignExtended_1: RD2_1;
-  assign SWin = ID_EX_ALU_Src ? SignExtended_1: ALU_Result_1;
+  assign SWin = ID_EX_MW ? SignExtended_1: ALU_Result_1;
   assign ALU_inB = FB ? SWin : MUXtoMUX;
   always (*) begin
     ALU_srcA = ALU_inA;
